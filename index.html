@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Galvis | Data Science Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --primary: #1e3a8a;
+      --primary-light: #2563eb;
+      --accent: #06b6d4;
+      --border: #e5e7eb;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 32%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 50px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 42px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-light);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: var(--radius);
+      padding: 42px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eef2ff;
+      color: var(--primary);
+      border: 1px solid #dbeafe;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      margin-bottom: 18px;
+      color: #0f172a;
+    }
+
+    .hero-subtitle {
+      font-size: 1.14rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .highlight {
+      color: var(--primary-light);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border-radius: 999px;
+      padding: 12px 17px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(37, 99, 235, 0.32);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: #bfdbfe;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    .visual-card {
+      position: relative;
+      min-height: 430px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      background:
+        linear-gradient(160deg, rgba(15, 23, 42, 0.96), rgba(30, 58, 138, 0.92)),
+        #111827;
+      padding: 28px;
+      color: white;
+    }
+
+    .visual-grid {
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background-image:
+        linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      right: -60px;
+      top: -40px;
+    }
+
+    .orbit.two {
+      width: 370px;
+      height: 370px;
+      right: -120px;
+      top: 55px;
+    }
+
+    .visual-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 374px;
+    }
+
+    .code-window {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+      margin-top: 18px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .line {
+      margin-bottom: 7px;
+      white-space: nowrap;
+    }
+
+    .sql-blue { color: #60a5fa; }
+    .sql-cyan { color: #67e8f9; }
+    .sql-green { color: #86efac; }
+    .sql-muted { color: #94a3b8; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 2px;
+    }
+
+    .stat span {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      color: #0f172a;
+      margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 780px;
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .skill {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: #374151;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tag {
+      background: #eef2ff;
+      color: #1e3a8a;
+      border: 1px solid #dbeafe;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: white;
+      background: #0f172a;
+      padding: 11px 15px;
+      border-radius: 999px;
+      font-weight: 750;
+      transition: 0.2s ease;
+    }
+
+    .project-link:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .project-icon {
+      width: 92px;
+      height: 92px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(6, 182, 212, 0.35), transparent 35%),
+        linear-gradient(135deg, #1e3a8a, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.18);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-card {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      background: #ffffff;
+      transition: 0.2s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+      border-color: #bfdbfe;
+    }
+
+    .contact-card svg {
+      color: var(--primary-light);
+      margin-bottom: 10px;
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #0f172a;
+    }
+
+    .contact-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 22px;
+      font-size: 0.92rem;
+    }
+
+    .icon {
+      width: 19px;
+      height: 19px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-icon {
+        display: none;
+      }
+
+      .contact-row {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-card {
+        padding: 28px;
+      }
+
+      .visual-card {
+        min-height: 360px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <nav>
+      <a class="logo" href="#">
+        <span class="logo-mark">JG</span>
+        <span>Juan Galvis</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <div class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Data Science · Machine Learning · SQL
+          </div>
+
+          <h1>Building data-driven solutions with analytical rigor.</h1>
+
+          <p class="hero-subtitle">
+            I am <strong>Juan Galvis</strong>, focused on data science, artificial intelligence,
+            relational databases and applied analytics. This portfolio presents selected projects
+            with clear documentation, reproducible structure and practical business or technical value.
+          </p>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="assets/Juan_Galvis_CV.pdf" target="_blank">
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M7 3h7l5 5v13H7V3Z" stroke="currentColor" stroke-width="2" />
+                <path d="M14 3v6h5" stroke="currentColor" stroke-width="2" />
+                <path d="M9 14h6M9 17h6M9 11h2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              View CV
+            </a>
+
+            <a class="btn btn-secondary" href="mailto:juansebas0729@gmail.com">
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
+                <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" />
+              </svg>
+              Email
+            </a>
+
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/juan-galvis-chacón-09b231336" target="_blank">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8h4.2v14H.4V8Zm7.2 0h4v1.9h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V22h-4.2v-6.8c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V22H7.6V8Z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="visual-card">
+          <div class="visual-grid"></div>
+          <div class="orbit"></div>
+          <div class="orbit two"></div>
+
+          <div class="visual-content">
+            <div>
+              <p style="color:#cbd5e1; font-weight:700; margin-bottom:10px;">Featured technical focus</p>
+              <h2 style="color:white; margin-bottom:10px;">Data, models and databases</h2>
+              <p style="color:#cbd5e1;">
+                Projects structured around clean design, interpretable analysis and professional documentation.
+              </p>
+            </div>
+
+            <div class="code-window">
+              <div class="window-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <div class="line"><span class="sql-blue">SELECT</span> project, skills</div>
+              <div class="line"><span class="sql-blue">FROM</span> portfolio</div>
+              <div class="line"><span class="sql-blue">WHERE</span> focus <span class="sql-cyan">IN</span> <span class="sql-green">('SQL', 'ML', 'AI')</span>;</div>
+              <div class="line sql-muted">-- structured, documented, reproducible</div>
+            </div>
+
+            <div class="stats">
+              <div class="stat">
+                <strong>SQL</strong>
+                <span>Database design</span>
+              </div>
+              <div class="stat">
+                <strong>ML</strong>
+                <span>Predictive models</span>
+              </div>
+              <div class="stat">
+                <strong>AI</strong>
+                <span>Applied analytics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="projects">
+        <h2>Featured Project</h2>
+        <p class="section-intro">
+          A selected project prepared as a professional portfolio repository, including documentation,
+          source code and a clear technical structure.
+        </p>
+
+        <div class="project-card">
+          <div>
+            <h3>MySQL Cultural Events Database</h3>
+            <p>
+              Relational database design and MySQL implementation for a fictional cultural events company.
+              The project includes conceptual modeling, relational schema design, SQL implementation,
+              data insertion, analytical queries, views and triggers.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">MySQL</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Database Design</span>
+              <span class="tag">Views</span>
+              <span class="tag">Triggers</span>
+              <span class="tag">Portfolio Project</span>
+            </div>
+
+            <a class="project-link" href="https://github.com/juansebas0729/sql-cultural-events-database" target="_blank">
+              View SQL Repository
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="project-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+              <ellipse cx="12" cy="5" rx="7" ry="3" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <p class="section-intro">
+          Main tools and areas represented in my academic and portfolio projects.
+        </p>
+
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">SQL</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">Machine Learning</span>
+          <span class="skill">Data Analysis</span>
+          <span class="skill">Pandas</span>
+          <span class="skill">Scikit-learn</span>
+          <span class="skill">Tableau</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">LaTeX</span>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact & Documents</h2>
+        <p class="section-intro">
+          Links to my professional profile, CV and contact information.
+        </p>
+
+        <div class="contact-row">
+          <a class="contact-card" href="mailto:your.email@example.com">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <strong>Email</strong>
+            <span>your.email@example.com</span>
+          </a>
+
+          <a class="contact-card" href="assets/Juan_Galvis_CV.pdf" target="_blank">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M7 3h7l5 5v13H7V3Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M14 3v6h5" stroke="currentColor" stroke-width="2"/>
+              <path d="M9 14h6M9 17h6M9 11h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <strong>Curriculum Vitae</strong>
+            <span>Download or view PDF</span>
+          </a>
+
+          <a class="contact-card" href="https://www.linkedin.com/in/juan-galvis-chacón-09b231336" target="_blank">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8h4.2v14H.4V8Zm7.2 0h4v1.9h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V22h-4.2v-6.8c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V22H7.6V8Z"/>
+            </svg>
+            <strong>LinkedIn</strong>
+            <span>Professional profile</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Juan Galvis · Data Science Portfolio</p>
+    </footer>
+  </div>
+</body>
+</html>
