@@ -55,6 +55,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 42px;
+      gap: 20px;
     }
 
     .logo {
@@ -79,6 +80,12 @@
       box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
     .nav-links {
       display: flex;
       gap: 18px;
@@ -91,6 +98,31 @@
       color: var(--primary-light);
     }
 
+    .language-switch {
+      display: flex;
+      gap: 6px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+    }
+
+    .language-switch button {
+      border: none;
+      background: transparent;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .language-switch button.active {
+      background: var(--primary);
+      color: white;
+    }
+
     .hero {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
@@ -100,7 +132,7 @@
     }
 
     .hero-card {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(229, 231, 235, 0.9);
       border-radius: var(--radius);
@@ -118,7 +150,7 @@
       padding: 7px 12px;
       border-radius: 999px;
       font-size: 0.86rem;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 18px;
     }
 
@@ -130,7 +162,7 @@
     }
 
     h1 {
-      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      font-size: clamp(2.25rem, 5vw, 4.45rem);
       line-height: 1.02;
       letter-spacing: -0.06em;
       margin-bottom: 18px;
@@ -138,14 +170,10 @@
     }
 
     .hero-subtitle {
-      font-size: 1.14rem;
+      font-size: 1.13rem;
       color: var(--muted);
-      max-width: 680px;
+      max-width: 720px;
       margin-bottom: 28px;
-    }
-
-    .highlight {
-      color: var(--primary-light);
     }
 
     .actions {
@@ -161,7 +189,7 @@
       gap: 9px;
       border-radius: 999px;
       padding: 12px 17px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.95rem;
       transition: 0.2s ease;
       border: 1px solid transparent;
@@ -192,7 +220,7 @@
 
     .visual-card {
       position: relative;
-      min-height: 430px;
+      min-height: 455px;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -238,49 +266,54 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 374px;
+      min-height: 398px;
     }
 
-    .code-window {
-      background: rgba(15, 23, 42, 0.88);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 20px 45px rgba(0,0,0,0.25);
-      margin-top: 18px;
-      font-family: Consolas, Monaco, monospace;
-      font-size: 0.9rem;
-      color: #d1d5db;
+    .workflow {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
     }
 
-    .window-dots {
+    .workflow-step {
       display: flex;
-      gap: 7px;
-      margin-bottom: 14px;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 16px;
+      padding: 13px 14px;
     }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #94a3b8;
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: white;
+      flex-shrink: 0;
     }
 
-    .line {
-      margin-bottom: 7px;
-      white-space: nowrap;
+    .workflow-step strong {
+      display: block;
+      font-size: 0.95rem;
     }
 
-    .sql-blue { color: #60a5fa; }
-    .sql-cyan { color: #67e8f9; }
-    .sql-green { color: #86efac; }
-    .sql-muted { color: #94a3b8; }
+    .workflow-step span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 0.82rem;
+    }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .stat {
@@ -292,17 +325,17 @@
 
     .stat strong {
       display: block;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       margin-bottom: 2px;
     }
 
     .stat span {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: #cbd5e1;
     }
 
     section {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid rgba(229, 231, 235, 0.9);
       border-radius: var(--radius);
       padding: 30px;
@@ -317,10 +350,57 @@
       letter-spacing: -0.03em;
     }
 
+    h3 {
+      color: #0f172a;
+    }
+
     .section-intro {
       color: var(--muted);
-      max-width: 780px;
+      max-width: 820px;
       margin-bottom: 20px;
+    }
+
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .cv-block {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .cv-block h3 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .cv-item {
+      margin-bottom: 14px;
+    }
+
+    .cv-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cv-item strong {
+      display: block;
+      color: #111827;
+    }
+
+    .cv-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .cv-item p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     .skills {
@@ -337,7 +417,7 @@
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 0.92rem;
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .project-card {
@@ -376,7 +456,7 @@
       padding: 5px 9px;
       border-radius: 999px;
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .project-link {
@@ -387,7 +467,7 @@
       background: #0f172a;
       padding: 11px 15px;
       border-radius: 999px;
-      font-weight: 750;
+      font-weight: 800;
       transition: 0.2s ease;
     }
 
@@ -460,8 +540,12 @@
       flex-shrink: 0;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 900px) {
       .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .cv-grid {
         grid-template-columns: 1fr;
       }
 
@@ -483,12 +567,20 @@
     }
 
     @media (max-width: 560px) {
+      .page {
+        padding: 20px 14px 40px;
+      }
+
+      nav {
+        align-items: flex-start;
+      }
+
       .hero-card {
         padding: 28px;
       }
 
       .visual-card {
-        min-height: 360px;
+        min-height: 380px;
       }
 
       .stats {
@@ -497,6 +589,10 @@
 
       section {
         padding: 24px;
+      }
+
+      .language-switch button {
+        padding: 6px 9px;
       }
     }
   </style>
@@ -510,10 +606,17 @@
         <span>Juan Galvis</span>
       </a>
 
-      <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#cv" data-i18n="navCv">CV</a>
+          <a href="#projects" data-i18n="navProjects">Projects</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+
+        <div class="language-switch" aria-label="Language switch">
+          <button id="btn-en" class="active" onclick="setLanguage('en')">EN</button>
+          <button id="btn-es" onclick="setLanguage('es')">ES</button>
+        </div>
       </div>
     </nav>
 
@@ -522,15 +625,15 @@
         <div class="hero-card">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Data Science · Machine Learning · SQL
+            <span data-i18n="eyebrow">Data Science · Machine Learning · Artificial Intelligence · Business Intelligence · Big Data</span>
           </div>
 
-          <h1>Building data-driven solutions with analytical rigor.</h1>
+          <h1 data-i18n="heroTitle">Turning complex data into intelligent business decisions.</h1>
 
-          <p class="hero-subtitle">
-            I am <strong>Juan Galvis</strong>, focused on data science, artificial intelligence,
-            relational databases and applied analytics. This portfolio presents selected projects
-            with clear documentation, reproducible structure and practical business or technical value.
+          <p class="hero-subtitle" data-i18n="heroSubtitle">
+            I am Juan Galvis, a Data Analyst with a background in Physics, Machine Learning and Big Data.
+            I work on data-driven business problems using econometric modeling, statistical analysis,
+            dashboards and analytical workflows that support strategic decision-making.
           </p>
 
           <div class="actions">
@@ -540,7 +643,7 @@
                 <path d="M14 3v6h5" stroke="currentColor" stroke-width="2" />
                 <path d="M9 14h6M9 17h6M9 11h2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
               </svg>
-              View CV
+              <span data-i18n="viewCv">View CV</span>
             </a>
 
             <a class="btn btn-secondary" href="mailto:juansebas0729@gmail.com">
@@ -548,7 +651,7 @@
                 <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
                 <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" />
               </svg>
-              Email
+              <span data-i18n="email">Email</span>
             </a>
 
             <a class="btn btn-secondary" href="https://www.linkedin.com/in/juan-galvis-chacón-09b231336" target="_blank">
@@ -567,57 +670,148 @@
 
           <div class="visual-content">
             <div>
-              <p style="color:#cbd5e1; font-weight:700; margin-bottom:10px;">Featured technical focus</p>
-              <h2 style="color:white; margin-bottom:10px;">Data, models and databases</h2>
-              <p style="color:#cbd5e1;">
-                Projects structured around clean design, interpretable analysis and professional documentation.
+              <p style="color:#cbd5e1; font-weight:800; margin-bottom:10px;" data-i18n="visualLabel">Analytical workflow</p>
+              <h2 style="color:white; margin-bottom:10px;" data-i18n="visualTitle">From data to business impact</h2>
+              <p style="color:#cbd5e1;" data-i18n="visualText">
+                Combining statistical modeling, machine learning, dashboards and business understanding to transform data into actionable insights.
               </p>
             </div>
 
-            <div class="code-window">
-              <div class="window-dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+            <div class="workflow">
+              <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div>
+                  <strong data-i18n="step1Title">Collect & structure</strong>
+                  <span data-i18n="step1Text">Clean datasets, databases and business sources</span>
+                </div>
               </div>
-              <div class="line"><span class="sql-blue">SELECT</span> project, skills</div>
-              <div class="line"><span class="sql-blue">FROM</span> portfolio</div>
-              <div class="line"><span class="sql-blue">WHERE</span> focus <span class="sql-cyan">IN</span> <span class="sql-green">('SQL', 'ML', 'AI')</span>;</div>
-              <div class="line sql-muted">-- structured, documented, reproducible</div>
+
+              <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div>
+                  <strong data-i18n="step2Title">Model & analyze</strong>
+                  <span data-i18n="step2Text">Econometrics, forecasting and ML workflows</span>
+                </div>
+              </div>
+
+              <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div>
+                  <strong data-i18n="step3Title">Visualize & decide</strong>
+                  <span data-i18n="step3Text">Dashboards and insights for decision-making</span>
+                </div>
+              </div>
             </div>
 
             <div class="stats">
               <div class="stat">
-                <strong>SQL</strong>
-                <span>Database design</span>
+                <strong>MMM</strong>
+                <span data-i18n="stat1">Marketing Mix Modeling</span>
+              </div>
+              <div class="stat">
+                <strong>BI</strong>
+                <span data-i18n="stat2">Business Intelligence</span>
               </div>
               <div class="stat">
                 <strong>ML</strong>
-                <span>Predictive models</span>
-              </div>
-              <div class="stat">
-                <strong>AI</strong>
-                <span>Applied analytics</span>
+                <span data-i18n="stat3">Predictive modeling</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <section id="cv">
+        <h2 data-i18n="cvTitle">Professional Profile</h2>
+        <p class="section-intro" data-i18n="cvIntro">
+          Data Analyst with a strong background in Physics, Machine Learning and Big Data. Experienced in transforming complex datasets into actionable insights through statistical analysis, econometric modeling and business intelligence dashboards.
+        </p>
+
+        <div class="cv-grid">
+          <div class="cv-block">
+            <h3 data-i18n="experienceTitle">Professional Experience</h3>
+
+            <div class="cv-item">
+              <strong>Data Analyst — Annalect, Omnicom Media</strong>
+              <span>2025 – Present · Madrid, Spain</span>
+              <p data-i18n="annalectText">
+                Developed econometric and statistical models for Marketing Mix Modeling, analyzed large-scale datasets, supported media investment optimization and built Tableau dashboards for KPI monitoring.
+              </p>
+            </div>
+
+            <div class="cv-item">
+              <strong>Waiter — Tahona Milagrosa Café</strong>
+              <span>2020 – 2025 · Pamplona, Spain</span>
+              <p data-i18n="waiterText">
+                Customer-facing work experience developed alongside academic studies, strengthening communication, discipline and responsibility.
+              </p>
+            </div>
+          </div>
+
+          <div class="cv-block">
+            <h3 data-i18n="educationTitle">Education</h3>
+
+            <div class="cv-item">
+              <strong data-i18n="masterBigData">Master’s Degree in Big Data, Data Science and Artificial Intelligence</strong>
+              <span>Complutense University of Madrid · 2025 – 2026</span>
+            </div>
+
+            <div class="cv-item">
+              <strong data-i18n="bootcamp">Bootcamp in Applied Technology and Business Intelligence</strong>
+              <span>International University of La Rioja · 2025 – 2026</span>
+            </div>
+
+            <div class="cv-item">
+              <strong data-i18n="physics">Bachelor’s Degree in Physics</strong>
+              <span>University of Zaragoza · 2020 – 2025</span>
+              <p data-i18n="physicsText">
+                Bachelor’s thesis focused on neural networks applied to an economics-related predictive modeling problem. Erasmus+ exchange at Università degli Studi di Torino.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 data-i18n="skillsTitle">Technical Skills</h2>
+        <p class="section-intro" data-i18n="skillsIntro">
+          Main technologies and methods used across academic, professional and portfolio projects.
+        </p>
+
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">SQL</span>
+          <span class="skill">R</span>
+          <span class="skill">C/C++</span>
+          <span class="skill">Machine Learning</span>
+          <span class="skill">Deep Learning</span>
+          <span class="skill">Forecasting</span>
+          <span class="skill">Econometric Modeling</span>
+          <span class="skill">Marketing Mix Modeling</span>
+          <span class="skill">Business Intelligence</span>
+          <span class="skill">Tableau</span>
+          <span class="skill">pandas</span>
+          <span class="skill">NumPy</span>
+          <span class="skill">scikit-learn</span>
+          <span class="skill">TensorFlow / Keras</span>
+          <span class="skill">MongoDB</span>
+          <span class="skill">Git</span>
+          <span class="skill">Linux</span>
+          <span class="skill">LaTeX</span>
+        </div>
+      </section>
+
       <section id="projects">
-        <h2>Featured Project</h2>
-        <p class="section-intro">
-          A selected project prepared as a professional portfolio repository, including documentation,
-          source code and a clear technical structure.
+        <h2 data-i18n="projectsTitle">Featured Project</h2>
+        <p class="section-intro" data-i18n="projectsIntro">
+          Selected portfolio project with structured documentation, source code and a clear technical presentation.
         </p>
 
         <div class="project-card">
           <div>
             <h3>MySQL Cultural Events Database</h3>
-            <p>
-              Relational database design and MySQL implementation for a fictional cultural events company.
-              The project includes conceptual modeling, relational schema design, SQL implementation,
-              data insertion, analytical queries, views and triggers.
+            <p data-i18n="sqlProjectText">
+              Relational database design and MySQL implementation for a fictional cultural events company. The project includes conceptual modeling, relational schema design, SQL implementation, data insertion, analytical queries, views and triggers.
             </p>
 
             <div class="project-tags">
@@ -630,7 +824,7 @@
             </div>
 
             <a class="project-link" href="https://github.com/juansebas0729/sql-cultural-events-database" target="_blank">
-              View SQL Repository
+              <span data-i18n="viewSqlRepo">View SQL Repository</span>
               <svg class="icon" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -647,30 +841,9 @@
         </div>
       </section>
 
-      <section id="skills">
-        <h2>Technical Skills</h2>
-        <p class="section-intro">
-          Main tools and areas represented in my academic and portfolio projects.
-        </p>
-
-        <div class="skills">
-          <span class="skill">Python</span>
-          <span class="skill">SQL</span>
-          <span class="skill">MySQL</span>
-          <span class="skill">Machine Learning</span>
-          <span class="skill">Data Analysis</span>
-          <span class="skill">Pandas</span>
-          <span class="skill">Scikit-learn</span>
-          <span class="skill">Tableau</span>
-          <span class="skill">Git</span>
-          <span class="skill">GitHub</span>
-          <span class="skill">LaTeX</span>
-        </div>
-      </section>
-
       <section id="contact">
-        <h2>Contact & Documents</h2>
-        <p class="section-intro">
+        <h2 data-i18n="contactTitle">Contact & Documents</h2>
+        <p class="section-intro" data-i18n="contactIntro">
           Links to my professional profile, CV and contact information.
         </p>
 
@@ -680,7 +853,7 @@
               <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
               <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2"/>
             </svg>
-            <strong>Email</strong>
+            <strong data-i18n="email">Email</strong>
             <span>juansebas0729@gmail.com</span>
           </a>
 
@@ -690,8 +863,8 @@
               <path d="M14 3v6h5" stroke="currentColor" stroke-width="2"/>
               <path d="M9 14h6M9 17h6M9 11h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
-            <strong>Curriculum Vitae</strong>
-            <span>Download or view PDF</span>
+            <strong data-i18n="cvDocument">Curriculum Vitae</strong>
+            <span data-i18n="cvDocumentText">Download or view PDF</span>
           </a>
 
           <a class="contact-card" href="https://www.linkedin.com/in/juan-galvis-chacón-09b231336" target="_blank">
@@ -699,15 +872,121 @@
               <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.4 8h4.2v14H.4V8Zm7.2 0h4v1.9h.1c.6-1.1 2-2.3 4.1-2.3 4.4 0 5.2 2.9 5.2 6.7V22h-4.2v-6.8c0-1.6 0-3.7-2.3-3.7s-2.6 1.8-2.6 3.6V22H7.6V8Z"/>
             </svg>
             <strong>LinkedIn</strong>
-            <span>Professional profile</span>
+            <span data-i18n="linkedinText">Professional profile</span>
           </a>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>© 2026 Juan Galvis · Data Science Portfolio</p>
+      <p data-i18n="footer">© 2026 Juan Galvis · Data Science Portfolio</p>
     </footer>
   </div>
+
+  <script>
+    const translations = {
+      en: {
+        navCv: "CV",
+        navProjects: "Projects",
+        navContact: "Contact",
+        eyebrow: "Data Science · Machine Learning · Artificial Intelligence · Business Intelligence · Big Data",
+        heroTitle: "Turning complex data into intelligent business decisions.",
+        heroSubtitle: "I am Juan Galvis, a Data Analyst with a background in Physics, Machine Learning and Big Data. I work on data-driven business problems using econometric modeling, statistical analysis, dashboards and analytical workflows that support strategic decision-making.",
+        viewCv: "View CV",
+        email: "Email",
+        visualLabel: "Analytical workflow",
+        visualTitle: "From data to business impact",
+        visualText: "Combining statistical modeling, machine learning, dashboards and business understanding to transform data into actionable insights.",
+        step1Title: "Collect & structure",
+        step1Text: "Clean datasets, databases and business sources",
+        step2Title: "Model & analyze",
+        step2Text: "Econometrics, forecasting and ML workflows",
+        step3Title: "Visualize & decide",
+        step3Text: "Dashboards and insights for decision-making",
+        stat1: "Marketing Mix Modeling",
+        stat2: "Business Intelligence",
+        stat3: "Predictive modeling",
+        cvTitle: "Professional Profile",
+        cvIntro: "Data Analyst with a strong background in Physics, Machine Learning and Big Data. Experienced in transforming complex datasets into actionable insights through statistical analysis, econometric modeling and business intelligence dashboards.",
+        experienceTitle: "Professional Experience",
+        annalectText: "Developed econometric and statistical models for Marketing Mix Modeling, analyzed large-scale datasets, supported media investment optimization and built Tableau dashboards for KPI monitoring.",
+        waiterText: "Customer-facing work experience developed alongside academic studies, strengthening communication, discipline and responsibility.",
+        educationTitle: "Education",
+        masterBigData: "Master’s Degree in Big Data, Data Science and Artificial Intelligence",
+        bootcamp: "Bootcamp in Applied Technology and Business Intelligence",
+        physics: "Bachelor’s Degree in Physics",
+        physicsText: "Bachelor’s thesis focused on neural networks applied to an economics-related predictive modeling problem. Erasmus+ exchange at Università degli Studi di Torino.",
+        skillsTitle: "Technical Skills",
+        skillsIntro: "Main technologies and methods used across academic, professional and portfolio projects.",
+        projectsTitle: "Featured Project",
+        projectsIntro: "Selected portfolio project with structured documentation, source code and a clear technical presentation.",
+        sqlProjectText: "Relational database design and MySQL implementation for a fictional cultural events company. The project includes conceptual modeling, relational schema design, SQL implementation, data insertion, analytical queries, views and triggers.",
+        viewSqlRepo: "View SQL Repository",
+        contactTitle: "Contact & Documents",
+        contactIntro: "Links to my professional profile, CV and contact information.",
+        cvDocument: "Curriculum Vitae",
+        cvDocumentText: "Download or view PDF",
+        linkedinText: "Professional profile",
+        footer: "© 2026 Juan Galvis · Data Science Portfolio"
+      },
+
+      es: {
+        navCv: "CV",
+        navProjects: "Proyectos",
+        navContact: "Contacto",
+        eyebrow: "Data Science · Machine Learning · Inteligencia Artificial · Business Intelligence · Big Data",
+        heroTitle: "Transformando datos complejos en decisiones de negocio inteligentes.",
+        heroSubtitle: "Soy Juan Galvis, Data Analyst con formación en Física, Machine Learning y Big Data. Trabajo en problemas de negocio basados en datos mediante modelización econométrica, análisis estadístico, dashboards y flujos analíticos orientados a la toma de decisiones.",
+        viewCv: "Ver CV",
+        email: "Email",
+        visualLabel: "Flujo analítico",
+        visualTitle: "Del dato al impacto de negocio",
+        visualText: "Combinando modelización estadística, machine learning, dashboards y visión de negocio para transformar datos en insights accionables.",
+        step1Title: "Recoger y estructurar",
+        step1Text: "Datasets, bases de datos y fuentes de negocio limpias",
+        step2Title: "Modelizar y analizar",
+        step2Text: "Econometría, forecasting y flujos de ML",
+        step3Title: "Visualizar y decidir",
+        step3Text: "Dashboards e insights para la toma de decisiones",
+        stat1: "Marketing Mix Modeling",
+        stat2: "Business Intelligence",
+        stat3: "Modelización predictiva",
+        cvTitle: "Perfil profesional",
+        cvIntro: "Data Analyst con una sólida base en Física, Machine Learning y Big Data. Experiencia transformando datasets complejos en insights accionables mediante análisis estadístico, modelización econométrica y dashboards de business intelligence.",
+        experienceTitle: "Experiencia profesional",
+        annalectText: "Desarrollo de modelos econométricos y estadísticos para Marketing Mix Modeling, análisis de grandes volúmenes de datos, apoyo a la optimización de inversión en medios y creación de dashboards en Tableau para seguimiento de KPIs.",
+        waiterText: "Experiencia de atención al cliente desarrollada en paralelo a los estudios, reforzando habilidades de comunicación, disciplina y responsabilidad.",
+        educationTitle: "Formación académica",
+        masterBigData: "Máster en Big Data, Data Science e Inteligencia Artificial",
+        bootcamp: "Bootcamp en Tecnología Aplicada y Business Intelligence",
+        physics: "Grado en Física",
+        physicsText: "Trabajo de fin de grado centrado en redes neuronales aplicadas a un problema predictivo relacionado con economía. Erasmus+ en la Università degli Studi di Torino.",
+        skillsTitle: "Competencias técnicas",
+        skillsIntro: "Principales tecnologías y métodos utilizados en proyectos académicos, profesionales y de portfolio.",
+        projectsTitle: "Proyecto destacado",
+        projectsIntro: "Proyecto de portfolio con documentación estructurada, código fuente y presentación técnica clara.",
+        sqlProjectText: "Diseño de base de datos relacional e implementación en MySQL para una empresa ficticia de eventos culturales. El proyecto incluye modelado conceptual, diseño relacional, implementación SQL, inserción de datos, consultas analíticas, vistas y triggers.",
+        viewSqlRepo: "Ver repositorio SQL",
+        contactTitle: "Contacto y documentos",
+        contactIntro: "Enlaces a mi perfil profesional, CV e información de contacto.",
+        cvDocument: "Curriculum Vitae",
+        cvDocumentText: "Descargar o ver PDF",
+        linkedinText: "Perfil profesional",
+        footer: "© 2026 Juan Galvis · Portfolio de Data Science"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        element.textContent = translations[lang][key];
+      });
+
+      document.getElementById("btn-en").classList.toggle("active", lang === "en");
+      document.getElementById("btn-es").classList.toggle("active", lang === "es");
+    }
+  </script>
 </body>
 </html>
